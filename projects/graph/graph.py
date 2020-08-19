@@ -25,7 +25,8 @@ class Graph:
         if v1 in self.vertices and v2 in self.vertices:
             self.vertices[v1].add(v2)
         else:
-            raise Exception(f"You are trying to add edges to a nonexistent vertex. Vertex {v1} does not exist")
+        # Raises an exception otherwise
+            raise Exception(f"You are trying to add edges to a nonexistent vertex. Vertex {v1} does not exist.")
 
     def get_neighbors(self, vertex_id):
         """
