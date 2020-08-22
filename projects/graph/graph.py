@@ -40,6 +40,7 @@ class Graph:
         beginning from starting_vertex.
         """
         # Create an empty queue and enqueue the starting_vertex 
+        
         # Create an empty set to track visited verticies
 
         # while the queue is not empty:
@@ -89,25 +90,47 @@ class Graph:
         breath-first order.
         """
         # Create an empty queue and enqueue the PATH TO starting_vertex 
+        q = Queue()
+        q.enqueue([starting_vertex])
         # Create an empty set to track visited verticies
+        visited = set()
 
         # while the queue is not empty:
+        while q.size() > 0:
             # get current vertex PATH (dequeue from queue)
+            
+            path = q.dequeue()
             # set the current vertex to the LAST element of the PATH
-
+            print(path)
+            curr = path[-1]
+            
             # Check if the current vertex has not been visited:
+            if curr not in visited:
                 
                 # CHECK IF THE CURRENT VERTEX IS DESTINATION
-                # IF IT IS, STOP AND RETURN
+                # IF IT IS, RETURN THE PATH
+                if curr == destination_vertex:
+                    return path
+                
+                # Add the current vertex to a visited_set
+                visited.add(curr)
 
-                # Mark the current vertex as visited
-                    # Add the current vertex to a visited_set
 
                 # Queue up NEW paths with each neighbor:
+                for i in self.get_neighbors(curr):
                     # take current path
+                    new_path = list(path)
+
+
                     # append the neighbor to it
+                    new_path.append(i)
                     # queue up NEW path
-        pass  # TODO
+                    q.enqueue(new_path)
+
+        return None
+
+
+
 
     def dfs(self, starting_vertex, destination_vertex):
         """
@@ -148,10 +171,10 @@ if __name__ == '__main__':
     graph.add_edge(2, 3)
     graph.add_edge(4, 6)
     
-# stretch goal, add checks
+# (stretch) Add checks
 # to your graph to ensure that edges to nonexistent vertices
 #  are rejected.
-    graph.add_edge('0', '4')  # No '4' vertex, should raise an Exception!
+#    graph.add_edge('0', '4')  # No '4' vertex, should raise an Exception!
 
     '''
     Should print:
@@ -190,7 +213,7 @@ if __name__ == '__main__':
     Valid BFS path:
         [1, 2, 4, 6]
     '''
-    # print(graph.bfs(1, 6))
+    print(graph.bfs(1, 6))
 
     '''
     Valid DFS paths:
