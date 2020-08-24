@@ -100,7 +100,6 @@ class Graph:
                 for neighbor_vertex in self.get_neighbors(current_vertex):
                     stack.push(neighbor_vertex)
 
-                    stack.push(neighbor_vertex)
 
         return None
 
