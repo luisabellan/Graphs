@@ -1,10 +1,57 @@
 
 def earliest_ancestor(ancestors, starting_node):
     
-    # si starting_node no tiene padre, es el earliest ancestor, así que
-    # return starting_node
 
-    # mirar si starting_node tiene padres
+    parents = []
+    solution = -1
+
+    
+
+    
+    # mientras el starting_node tenga padres
+
+    
+    # encontrar padre
+    for (x,y) in ancestors:
+
+        
+
+
+        if y == starting_node:
+            # print(x)
+            parents.append(x)
+            # print(parents)
+        if len(parents) == 2:
+            solution = min(parents)
+            starting_node = solution
+            print(solution)
+            earliest_ancestor(ancestors, starting_node)
+            return solution
+        
+        elif len(parents) == 1:
+            solution = parents[0]
+            starting_node = solution
+            print(solution)
+            earliest_ancestor(ancestors, starting_node)
+            return solution
+
+    
+
+        # elif len(parents) == 0:
+        
+        
+        
+
+      
+            
+            
+                
+        
+
+        # si starting_node no tiene padre, es el earliest ancestor, así que
+     
+    
+
         # si tiene varios padres
             # elegir el más pequeño
         # si  tiene un padre
