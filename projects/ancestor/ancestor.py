@@ -5,21 +5,35 @@ def earliest_ancestor(ancestors, starting_node):
     parents = []
     solution = -1
 
-    # mirar si starting_node tiene padres
     
 
-    for i in ancestors:
-        (x,y) = i
+    
+    # mientras el starting_node tenga padres
+
+    # encontrar padre
+    for (x,y) in ancestors:
         if y == starting_node:
             # print(x)
             parents.append(x)
             # print(parents)
             if len(parents) == 2:
                 solution = min(parents)
-                print(solution)
                 starting_node = solution
-                return solution
+                print(solution)
+            
+            if len(parents) == 1:
+                solution = parents[0]
+                starting_node = solution
+                print(solution)
 
+        # if len(parents) == 0:
+        else:      
+            print(-1)
+            return solution
+            
+            
+                
+        
 
         # si starting_node no tiene padre, es el earliest ancestor, así que
      
@@ -42,5 +56,5 @@ if __name__ == '__main__':
 
   
   
-    starting_node = 6
+    starting_node = 4
     earliest_ancestor(ancestors, starting_node) 
