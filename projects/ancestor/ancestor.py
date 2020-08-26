@@ -21,19 +21,34 @@ def earliest_ancestor(ancestors, starting_node):
             # print(x)
             parents.append(x)
             # print(parents)
-        if len(parents) == 2:
-            solution = min(parents)
-            starting_node = solution
-            print(solution)
-            earliest_ancestor(ancestors, starting_node)
-            return solution
+            # if len(parents) == 0:
+            #     solution = -1
+            #     starting_node = solution
+            #     # print(solution)
+            #     earliest_ancestor(ancestors, starting_node)
+            #     return solution
+
+            if len(parents) == 1 or len(parents) == 2:
+                solution = min(parents)
+                # print(solution)
+                starting_node = solution
+                earliest_ancestor(ancestors, starting_node)
+            else:
+                solution = -1
+                starting_node = solution
+                earliest_ancestor(ancestors, starting_node)
+            
+    print(solution)
+    return solution
+            
         
-        elif len(parents) == 1:
-            solution = parents[0]
-            starting_node = solution
-            print(solution)
-            earliest_ancestor(ancestors, starting_node)
-            return solution
+
+
+
+        
+        
+
+            
 
     
 
@@ -63,11 +78,11 @@ def earliest_ancestor(ancestors, starting_node):
 
 
 # Driver code 
-if __name__ == '__main__': 
+# if __name__ == '__main__': 
 
-    ancestors = [(1, 3), (2, 3), (3, 6), (5, 6), (5, 7), (4, 5), (4, 8), (8, 9), (11, 8), (10, 1)]
+#     ancestors = [(1, 3), (2, 3), (3, 6), (5, 6), (5, 7), (4, 5), (4, 8), (8, 9), (11, 8), (10, 1)]
 
   
   
-    starting_node = 6
-    earliest_ancestor(ancestors, starting_node) 
+#     starting_node = 7
+#     earliest_ancestor(ancestors, starting_node) 
