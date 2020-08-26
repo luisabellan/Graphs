@@ -10,26 +10,39 @@ def earliest_ancestor(ancestors, starting_node):
     
     # mientras el starting_node tenga padres
 
+    
     # encontrar padre
     for (x,y) in ancestors:
+
+        
+
+
         if y == starting_node:
             # print(x)
             parents.append(x)
             # print(parents)
-            if len(parents) == 2:
-                solution = min(parents)
-                starting_node = solution
-                print(solution)
-            
-            if len(parents) == 1:
-                solution = parents[0]
-                starting_node = solution
-                print(solution)
-
-        # if len(parents) == 0:
-        else:      
-            print(-1)
+        if len(parents) == 2:
+            solution = min(parents)
+            starting_node = solution
+            print(solution)
+            earliest_ancestor(ancestors, starting_node)
             return solution
+        
+        elif len(parents) == 1:
+            solution = parents[0]
+            starting_node = solution
+            print(solution)
+            earliest_ancestor(ancestors, starting_node)
+            return solution
+
+    
+
+        # elif len(parents) == 0:
+        
+        
+        
+
+      
             
             
                 
@@ -56,5 +69,5 @@ if __name__ == '__main__':
 
   
   
-    starting_node = 4
+    starting_node = 6
     earliest_ancestor(ancestors, starting_node) 
