@@ -9,6 +9,8 @@ def earliest_ancestor(ancestors, starting_node):
 
     
     # mientras el starting_node tenga padres
+    # while len(parents) < 3:
+    
 
     
     # encontrar padre
@@ -16,31 +18,28 @@ def earliest_ancestor(ancestors, starting_node):
 
         
 
-
+        
         if y == starting_node:
             # print(x)
             parents.append(x)
-            # print(parents)
-            # if len(parents) == 0:
-            #     solution = -1
-            #     starting_node = solution
-            #     # print(solution)
-            #     earliest_ancestor(ancestors, starting_node)
-            #     return solution
-
-            if len(parents) == 1 or len(parents) == 2:
+            
+            
+            if len(parents) < 3:
                 solution = min(parents)
                 # print(solution)
                 starting_node = solution
                 earliest_ancestor(ancestors, starting_node)
+
             else:
+                
                 solution = -1
                 starting_node = solution
-                earliest_ancestor(ancestors, starting_node)
-            
+        
+        
+        
     print(solution)
     return solution
-            
+        
         
 
 
@@ -84,5 +83,5 @@ def earliest_ancestor(ancestors, starting_node):
 
   
   
-#     starting_node = 7
+#     starting_node = 6
 #     earliest_ancestor(ancestors, starting_node) 
