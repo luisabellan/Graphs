@@ -71,7 +71,6 @@ class Graph:
                         'path': new_path
                     })
         return None
-        # pass  # TODO
 
     def dft(self, starting_vertex):
         """
